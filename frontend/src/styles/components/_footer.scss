@@ -1,0 +1,84 @@
+@use '../globals/colors-vars' as v;
+@use '../globals/mixins' as m;
+
+footer {
+    background-color: v.$color-3;
+    padding: 30px 7%;
+    color: v.$color-2;
+
+    .logo-links-container {
+        display: flex;
+        width: 100%;
+
+        .logo-footer {
+            @include m.logo(28px, v.$color-2);
+
+            margin: 0 10% 30px 0;
+            min-width: 170px;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 70%;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                margin-right: 50px;
+
+                a {
+                    color: v.$color-2;
+                    font-weight: 400;
+                    font-size: 14px;
+                    margin: 10px 0;
+                }
+            }
+        }
+
+    }
+
+    .icons-store-container {
+        display: flex;
+        gap: 20px;
+        margin-top: 40px;
+        border-bottom: v.$color-2 solid 1px;
+        padding-bottom: 20px;
+        flex-wrap: wrap;
+    
+        .icons-container img {
+            background-color: rgb(192, 192, 192);
+            border-radius: 100%;
+            padding: 5px;
+            margin: 0 15px 15px 0;
+            box-sizing: content-box;
+        }
+    
+        .store-container img {
+            margin: 0 10px 10px 0;
+        }
+    }    
+
+    .rub {
+        font-weight: 600;
+    }
+}
+
+/*---------------------------------------RESPONSIVE FOOTER -------------------------*/
+@media screen and (max-width: 1024px) {
+    footer .logo-links-container {
+        flex-direction: column;
+
+        .links-container {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    footer .logo-links-container .links-container {
+        flex-direction: column;
+    }
+}

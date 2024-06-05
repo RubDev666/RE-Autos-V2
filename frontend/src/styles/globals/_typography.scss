@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&family=Saira:wght@500;600;700;800&display=swap');
+
+$text-paragraph: 'Roboto', sans-serif;
+$text-titles: 'Saira', sans-serif;
+
+/*------ font family (general text and titles) -----*/
+.p-family {
+    font-family: $text-paragraph;
+}
+
+.t-family {
+    font-family: $text-titles;;
+}
+
+/*
+p, 
+a, 
+button {
+    font-family: $text-paragraph;
+}
+
+h1, h2, h3, h4, h5, h6, h6 {
+    font-family: $text-titles;
+}*/

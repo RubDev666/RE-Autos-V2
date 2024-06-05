@@ -1,0 +1,37 @@
+@use '../globals/colors-vars' as v;
+
+.error {
+    padding: 50px v.$padding-x-containers 100px;
+    text-align: center;
+}
+
+.error .error-icon {
+    font-size: 120px;
+}
+
+.error h1 {
+    margin: 0 0 10px;
+    font-size: 25px;
+}
+
+.error p {
+    font-weight: 500;
+}
+
+@media screen and (min-width: 1024px) {
+    .error {
+        padding: 70px v.$padding-x-containers 140px;
+    }
+    
+    .error .error-icon {
+        font-size: 160px;
+    }
+    
+    .error h1 {
+        font-size: 32px;
+    }
+    
+    .error p {
+        font-size: 20px;
+    }
+}

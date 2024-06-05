@@ -1,0 +1,134 @@
+@use '../globals/colors-vars' as v;
+
+.search-filters-container {
+    box-shadow: v.$box-shadow;
+    padding: 10px v.$padding-x-containers;
+}
+
+.search-container,
+.filter-header-container {
+    width: 100%;
+}
+
+.filter-header-container {
+    .btn-filter {
+        padding: 7px 0;
+        margin: 5px 0;
+        width: 100%;
+    }
+
+    .icon-mobile {
+        display: block;
+    }
+
+    .icon-pc {
+        display: none;
+    }
+}
+
+.options-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: v.$color-2;
+    padding: 30px 7%;
+    z-index: 800;
+
+    .icon {
+        font-size: 25px;
+    }
+
+    .title-brand {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .options a {
+        display: block;
+        color: v.$color-4;
+        padding: 20px 0;
+        font-weight: 500;
+        border-bottom: rgb(219, 219, 219) solid 1px;
+
+        &:hover {
+            color: v.$color-3;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .search-filters-container {
+        justify-content: space-between;
+    }
+
+    .search-container {
+        width: 40%;
+    }
+
+    .filter-header-container {
+        display: flex;
+        width: auto;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 0;
+
+        p {
+            margin: 0;
+        }
+
+        .icon-pc {
+            display: block;
+        }
+
+        .icon-mobile {
+            display: none;
+        }
+
+        .btn-filter {
+            gap: 10px;
+            width: auto;
+            margin: 0;
+        }
+    }
+
+    .options-container {
+        position: absolute;
+        width: 180px;
+        height: auto;
+        top: 120px;
+        left: auto;
+        border-radius: 7px;
+        box-shadow: v.$box-shadow;
+        padding: 10px 20px;
+
+        .t-family,
+        .icon {
+            display: none;
+        }
+
+        .options a {
+            border-bottom: none;
+            padding: 7px 0;
+            margin: 5px 0;
+        }
+
+        &.marca {
+            right: calc(380px + 2vw);
+        }
+
+        &.año {
+            right: calc(300px + 2vw);
+        }
+
+        &.puertas {
+            right: calc(180px + 2vw);
+        }
+
+        &.transmision {
+            right: v.$padding-x-containers;
+        }
+    }
+}

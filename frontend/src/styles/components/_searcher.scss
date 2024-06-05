@@ -1,0 +1,45 @@
+@use '../globals/colors-vars' as v;
+
+form {
+    width: 100%;
+    flex-direction: row-reverse;
+    border-radius: 7px;
+    background-color: v.$color-2;
+
+    &.border-disabled {
+        border: solid 1px rgba(0, 0, 0, 0.3);
+    }
+
+    &.border-active {
+        border: solid 1px v.$color-1;
+    }    
+
+    label button {
+        padding: 0 15px;
+        border: none;
+        outline: none;
+        background-color: v.$color-2;
+        cursor: pointer;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 7px;
+        outline: none;
+        border: none;
+        text-overflow: ellipsis;
+    }
+
+    .search-icon {
+        font-size: 25px;
+    }
+
+    .icon-disabled {
+        color: #8b8b8b;
+    }
+    
+    .icon-active {
+        color: v.$color-1;
+    }    
+}

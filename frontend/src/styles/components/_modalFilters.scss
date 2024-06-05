@@ -1,0 +1,123 @@
+@use '../globals/mixins' as m;
+@use '../globals/colors-vars' as v;
+
+.modal-container {
+    position: fixed;
+    width: 100%;
+    height: auto;
+    top: 0px;
+    left: 0;
+    box-sizing: border-box;
+    z-index: 800;
+    
+    .filters-mobile {
+        position: absolute;
+        background-color: v.$color-2;
+        width: 100%;
+        height: 100vh;
+        padding: 20px 7% 40px;
+        left: 0;
+        box-sizing: border-box;
+        top: 0px;
+        z-index: 300;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+
+        .btn-close {
+            background-color: transparent;
+            font-size: 24px;
+            border: none;
+            font-weight: 300;
+        }
+
+        .btn-show {
+            @include m.btn($dark: true, $border: false);
+
+            padding: 20px;
+            width: 100%;
+            margin: 30px 0;
+        }
+    }
+}
+
+.filters {
+    padding: 30px 0;
+    height: auto;
+    overflow-y: auto;
+    height: 100%;
+    
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgb(179, 179, 179);
+        border-radius: 5px;
+    }
+
+    .btn-action {
+        @include m.btn-filter();
+
+        padding: 0;
+        width: 100%;
+    }
+
+    .accordion-container {
+        padding: 10px;
+    }
+
+    .options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 15px 0;
+
+        button {
+            padding: 10px;
+        }
+
+        .btn-light {
+            @include m.btn-no-hover($dark: false, $border: true);
+        }
+
+        .btn-dark {
+            @include m.btn-no-hover($dark: true, $border: false);
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    $searcher-height: 60.39px;
+    $preownd-header-height: 61.19px;
+
+    .modal-container {
+        position: sticky;
+        top: calc($searcher-height + $preownd-header-height);
+        width: auto;
+        height: auto;
+        z-index: 780;
+
+        .actions {
+            display: none;
+        }
+
+        .filters-mobile {
+            position: inherit;
+            width: auto;
+            height: auto;
+            padding: 30px 0%;
+
+            .btn-show {
+                display: none;
+            }
+        }
+    }
+
+    .filters {
+        padding: 0px;
+        height: 300px;
+        overflow-y: scroll;
+        box-sizing: border-box;
+    }
+}

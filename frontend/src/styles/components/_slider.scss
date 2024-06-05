@@ -1,0 +1,148 @@
+@use '../globals/colors-vars' as v;
+@use '../globals/mixins' as m;
+
+#slider-main {
+    text-align: center;
+    margin: 40px 0;
+    padding: 0 v.$padding-x-containers;
+
+    h2 {
+        font-size: 28px;
+    }
+
+    swiper-container {
+        margin: 30px 0%;
+
+        &::part(bullet) {
+            transition: all .3s ease-in-out;
+        }
+
+        &::part(bullet-active) {
+            background-color: v.$color-3;
+            width: 24px;
+            border-radius: 200px;
+            transition: all .3s ease-in-out;
+        }        
+    }
+    
+    swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    article {
+        *background-color: v.$color-2;
+        margin: 30px 0;
+        border-radius: 7px;
+        width: 95%;
+        box-shadow: v.$box-shadow;
+        text-align: start;
+        box-sizing: content-box;
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: auto;
+            border-top-right-radius: 7px;
+            border-top-left-radius: 7px;
+        }
+
+        .slider-text {
+            padding: 25px 14px;
+            height: calc(135px + 2vw);
+            box-sizing: content-box;
+
+            h3 {
+                font-size: calc(18px + 1.98vw);
+                margin: 0 0 calc(5px + 2vw) 0;
+                font-weight: 600;
+                min-height: 4rem;
+            }
+    
+            p {
+                font-size: calc(15px + 0.2vw);
+                margin: 0;
+            }
+        }
+    }
+
+    .btn {
+        @include m.btn($dark: true, $border: false);
+
+        display: block;
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+/*---------------------------------------- RESPONSIVE SLIDER MAIN ----------------------- */
+@media screen and (min-width: 640px) {
+    #slider-main h2 {
+        font-size: 34px;
+    }
+
+    #slider-main .btn {
+        width: 50%;
+        display: inline-block;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #slider-main article .slider-text {
+        h3 {
+            font-size: 28px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    }
+
+    swiper-container::part(button-prev),
+    swiper-container::part(button-next) {
+        background-color: rgb(0, 0, 0, 0.8);
+        color: #ffffff;
+        height: 100%;
+        top: 0px;
+        padding: 10px;
+        font-size: 10px;
+    }
+
+    swiper-container::part(button-prev) {
+        left: 0;
+    }
+
+    swiper-container::part(button-next) {
+        right: 0;
+    }
+}
+
+@media screen and (min-width: 920px) {
+    #slider-main article .slider-text {
+        h3 {
+            font-size: calc(1px + 1.98vw);
+            margin: 0 0 15px 0;
+        }
+
+        p {
+            font-size: calc(15px + 0.2vw);
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #slider-main h2 {
+        font-size: 37px;
+    }
+
+    #slider-main .btn {
+        width: 20%;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    #slider-main article .slider-text h3 {
+        min-height: 5.5rem;
+    }
+}

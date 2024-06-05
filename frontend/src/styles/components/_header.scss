@@ -1,0 +1,196 @@
+@use '../globals/colors-vars' as v;
+@use '../globals/mixins' as m;
+
+header {
+    background-color: v.$color-2;
+    z-index: 900;
+
+    box-shadow: v.$box-shadow;
+
+    .logo-navbar-container.shadow {
+        box-shadow: v.$box-shadow;
+    }
+
+    .logo-container {
+        height: 50px;
+        padding: 0 v.$padding-x-containers;
+    
+        .logo {
+            @include m.logo(20px, v.$color-3);
+        }
+    
+        .icons-menu {
+            font-size: 23px;
+            font-weight: 900;
+            color: v.$color-1;
+        }
+        
+        &.active {
+            box-shadow: v.$box-shadow;
+        }
+
+        &.shadow {
+            box-shadow: v.$box-shadow;
+        }
+    }
+
+    nav {
+        display: none;
+
+        &.show {
+            display: block;
+
+            &.mobile-pre-owned {
+                padding: 30px v.$padding-x-containers 50px;
+            }
+
+            &.mobile {
+                padding: 30px v.$padding-x-containers 0;
+            }
+        }
+
+        .login-container {
+            .t-family {
+                font-size: 22px;
+                font-weight: 700;
+                margin: 0;
+            }
+
+            button {
+                @include m.btn($dark: true, $border: false);
+
+                padding: 15px 0;
+            }
+        }
+
+        .links-icons {
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+            padding-bottom: 10px;
+        }
+
+        .links-accordion {
+            padding: 10px 0;
+        }
+
+        .accordion {
+            margin-left: 30px;
+        }
+
+        .btn-filter {
+            padding: 7px 0;
+            margin: 5px 0;
+        }
+
+        .links-icons,
+        .links-accordion {
+            a {
+                color: v.$color-4;
+                font-weight: 400;
+                display: flex;
+                align-items: center;
+                padding: 7px 0;
+                margin: 5px 0;
+    
+                &:hover {
+                    color: v.$color-3;
+                }
+            }
+            
+            .icon {
+                width: 25px;
+                margin-right: 10px;
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    header {
+        .logo-navbar-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 v.$padding-x-containers;
+            height: 70px;
+        }
+
+        .logo-container {
+            height: auto;
+            padding: 0;
+
+            .logo {
+                font-size: 25px;
+            }
+
+            .icons-menu {
+                display: none;
+            }
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+
+            .login-container {
+                display: none;
+            }
+
+            .links-icons,
+            .links-accordion {
+                a {
+                    font-size: 17px;
+                    margin: 0;
+                }
+
+                .icon {
+                    display: none;
+                }
+            }
+
+            .links-icons {
+                flex-direction: row;
+                border-bottom: none;
+                margin-top: 0px;
+                margin-right: 20px;
+                padding-bottom: 0px;
+                gap: 20px;
+            }
+
+            .links-accordion {
+                padding: 0px 0;
+                display: flex;
+                flex-direction: row;
+                border-bottom: none;
+                align-items: center;
+                justify-content: center;
+                gap: 20px;
+
+                .help-accordion {
+                    display: none;
+                }
+            }
+
+            .accordion {
+                margin-left: 0px;
+                position: absolute;
+                top: 50px;
+                right: 7%;
+                background-color: v.$color-2;
+                border-radius: 7px;
+                box-shadow: v.$box-shadow;
+                padding: 10px 20px;
+                z-index: 900;
+            }
+
+            .btn-filter {
+                gap: 10px;
+            }
+        }
+    }
+}

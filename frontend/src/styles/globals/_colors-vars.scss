@@ -1,0 +1,30 @@
+$color-1: #ff0000;
+$color-2: #fff;
+$color-3: #000;
+$color-4: #555;
+$bg-gradient: linear-gradient(to right, #363636, #707070);
+$border: rgb(219, 219, 219) solid 1px;
+
+$box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+$padding-x-containers: 7%;
+
+.color-1 {
+    color: $color-1;
+}
+
+.color-2 {
+    color: $color-2;
+}
+
+.color-3 {
+    color: $color-3;
+}
+
+.color-4 {
+    color: $color-4;
+}
+
+.border-bottom {
+    border-bottom: $border;
+}

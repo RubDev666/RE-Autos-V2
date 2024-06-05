@@ -1,0 +1,92 @@
+@use 'colors-vars' as v;
+
+@mixin logo($f-size, $color) {
+    font-style: italic;
+    font-weight: 600;
+    color: $color;
+    font-size: $f-size;
+
+    .icon {
+        color: v.$color-1;
+    }
+}
+
+@mixin btn-globals() {
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+@mixin btn-dark() {
+    background-color: v.$color-3;
+    color: v.$color-2;
+    border: solid transparent 1px;
+}
+
+@mixin btn-light() {
+    background-color: v.$color-2;
+    color: v.$color-3;
+    border: solid transparent 1px;
+}
+
+@mixin btn-light-hover() {
+    @include btn-light();
+
+    &:hover {
+        border: solid v.$color-3 1px;
+    }
+}
+
+@mixin btn($dark: false, $border: false) {
+    @include btn-globals();
+
+    @if $dark {
+        @include btn-dark();
+
+        &:hover {
+            @include btn-light-hover();
+        }
+    } @else {
+        @include btn-light();
+
+        &:hover {
+            @include btn-dark();
+        }
+    }
+
+    @if $border {
+        border: solid v.$color-3 1px;
+    }
+}
+
+@mixin btn-no-hover($dark: false, $border: false) {
+    @include btn-globals();
+
+    @if $dark {
+        @include btn-dark();
+    } @else {
+        @include btn-light();
+    }
+
+    @if $border {
+        border: solid v.$color-3 1px;
+    }
+}
+
+@mixin btn-filter() {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-weight: 400;
+
+    background: none;
+    outline: none;
+    border: none;
+
+    .icon-filter {
+        font-size: 25px;
+        color: v.$color-1;
+    }
+}

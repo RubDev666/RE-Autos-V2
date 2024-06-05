@@ -1,0 +1,309 @@
+@use '../globals/colors-vars' as v;
+@use '../globals/mixins' as m;
+
+main {
+    overflow: hidden;
+
+    .bg-skew {
+        background: v.$bg-gradient;
+        position: absolute;
+        height: 45%;
+        top: 0;
+        width: 100%;
+    }
+
+    .main-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px v.$padding-x-containers;
+
+        .car-main {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+        }
+
+        .main-info-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .btn {
+                @include m.btn($dark: true, $border: false);
+
+                width: 100%;
+                margin-bottom: 28px;
+                text-align: center;
+                padding: 15px;
+            }
+        }
+
+        .angle-right {
+            position: absolute;
+            top: 0px;
+            right: -20px;
+            font-size: 20px;
+            transition: right .2s ease-in-out;
+        }
+
+        .btn-link {
+            font-size: 17px;
+            text-align: center;
+            display: inline-block;
+            align-items: center;
+            justify-content: center;
+            color: v.$color-3;
+            font-weight: 500;
+
+            &:hover .angle-right {
+                right: -28px;
+            }
+        }
+    }
+}
+
+/*================================= SECTIONS ======================= */
+.section {
+    padding: 30px v.$padding-x-containers;
+    text-align: center;
+
+    h3 {
+        font-size: 29px;
+        margin: 0 0 20px 0;
+        text-align: start;
+    }
+
+    p {
+        font-size: 19px;
+        text-align: start;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 27px;
+        padding: 15px;
+    }
+
+    img {
+        margin-top: 40px;
+        width: 100%;
+        height: auto;
+    }
+}
+
+.gray-section {
+    background: v.$bg-gradient;
+    color: v.$color-2;
+
+    .border_bottom {
+        border-bottom: solid v.$color-2 1px;
+        padding: 18px 0;
+        margin: 0;
+    }
+    
+    .line_height {
+        line-height: 30px;
+        margin-top: 28px;
+    }
+
+    button {
+        @include m.btn($dark: false, $border: false);
+    }
+}
+
+.white-section {
+    background: v.$color-2;
+    color: v.$color-3;
+
+    button {
+        @include m.btn($dark: true, $border: false);
+    }
+}
+
+#plan {
+    padding: 30px v.$padding-x-containers 0;
+
+    .img_normal {
+        display: none;
+    }
+}
+
+#headquarters {
+    flex-direction: column;
+
+    .headquarters-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 300px));
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        margin: 20px 0;
+
+        .headquarter {
+            border-radius: 7px;
+            box-shadow: v.$box-shadow;
+            text-align: center;
+            padding: 20px;
+
+            .addres-container {
+                height: 140px;
+
+                .name {
+                    font-weight: 500;
+                }
+            }
+
+            .icon {
+                font-size: 30px;
+                margin-bottom: 20px;
+            }
+        }
+
+        button {
+            @include m.btn($dark: false, $border: true);
+    
+            margin-top: 27px;
+        }
+    }
+}
+
+@media screen and (min-width: 640px) {
+    main {
+        .main-container .main-info-container {
+            h1 {
+                font-size: 37px;
+            }
+
+            .btn {
+                width: 50%;
+            }
+        }
+    }
+
+    .section {
+        h3 {
+            font-size: 34px;
+        }
+
+        button {
+            width: 50%;
+        }
+
+        img {
+            width: 80%;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10%;
+        text-align: start;
+        padding: 3% v.$padding-x-containers;
+
+        h3 {
+            font-size: calc(29px + 1vw);
+        }
+
+        button {
+            width: auto;
+            padding: 14px 70px;
+        }
+
+        img {
+            width: 50%;
+            max-width: 500px;
+            min-width: 250px;
+        }
+    }
+
+    #plan {
+        padding: 3% v.$padding-x-containers 5px;
+        flex-direction: row-reverse;
+        justify-content: end;
+
+        div {
+            padding: 0 0 30px 0;
+        }
+
+        .img_normal {
+            display: block;
+            align-self: flex-end;
+        }
+
+        .img_mobile {
+            display: none;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    main {
+        .bg-skew {
+            height: 800%;
+            right: -200px;
+            width: 80%;
+            transform: skewY(-50deg);
+        }
+    
+        .main-container {
+            flex-direction: row-reverse;
+            text-align: start;
+            padding: 8% v.$padding-x-containers;
+
+            .main-info-container {
+                align-items: flex-start;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    #plan div {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 1324px) {
+    main {
+        .main-container {
+            .main-info-container {
+                h1 {
+                    font-size: 58px;
+                }
+            }
+        
+            .btn-link,
+            .main-info-container .btn {
+                font-size: 24px;
+            }
+        
+            .main-info-container .btn {
+                margin-bottom: 40px;
+            }
+        
+            .angle-right {
+                top: 3px;
+                right: -25px;
+                font-size: 25px;
+            }
+        
+            .btn-link:hover .angle-right {
+                right: -35px;
+            }
+        
+            .car-main {
+                max-width: 600px;
+            }
+        }
+    }
+}

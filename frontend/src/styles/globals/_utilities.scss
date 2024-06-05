@@ -1,0 +1,60 @@
+@use 'colors-vars' as v;
+@use 'mixins' as m;
+
+/*-------------------------- GLOBAL CLASSES AND STYLES ------------ */
+*::selection {
+    background-color: v.$color-1;
+}
+
+a {
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.italic {
+    font-style: italic;
+}
+
+/*--------------- FLEX -------------- */
+.all-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.items-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.none {
+    display: none;
+}
+
+.block {
+    display: block;
+}
+
+.relative {
+    position: relative;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.btn-filter {
+    @include m.btn-filter();
+}
