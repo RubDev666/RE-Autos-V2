@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
-import "@/styles/globals/_typography.scss"; //import separately in "layout.tsx"
+//import "@/styles/globals/_typography.scss"; //import separately in "layout.tsx";
+import "./globals.scss";
 import "../styles/index.scss";
 
 import { getCars } from "@/lib/actions/cars.actions";
