@@ -4,7 +4,6 @@ import { useEffect, useState, useCallback } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 
-import { getCars } from "@/lib/actions/cars.actions";
 import { Car as CarComponent, ModalFilters, Spinner, Error } from "@/components";
 import { extractData } from "@/utils/filtersOptions";
 import { TagParam, Car, KeysParams } from "@/types";
@@ -40,12 +39,14 @@ export default function PreOwned() {
 
     useEffect(() => {
         async function getData() {
-            const data = await getCars();
+            try {
+                const data = await fetch('/api/cars').then(res => res.json());
 
-            if(!data) return setLoading(false);
-
-            setData(data.cars);
-            extractData(data.cars);
+                setData(data.cars);
+                extractData(data.cars);
+            } catch (error) {
+                return setLoading(false);
+            }
         }
 
         getData();

@@ -7,7 +7,7 @@ export const metadata = {
     description: 'Autos usados, o seminuevos a los mejores precios',
 }
 
-export default async function Page() {
+export default function Page() {
     return (
         <div id="main-preowned">
             <div className="searcher-container">
