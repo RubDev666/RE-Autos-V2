@@ -6,7 +6,7 @@ Proyecto con Nexts JS (App Router) y Cloudinary
 - React con Next JS (App Router)
 - REST API
 - Express
-- Server Actions
+- Route Handlers
 - Servicio de imagenes en la nube con Cloudinary
 
 Usando librerias frontend como:
